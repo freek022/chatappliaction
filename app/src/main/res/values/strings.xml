@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">ChatLife</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- navigation items names-->
+    <string name="chats">CHATS</string>
+    <string name="sign_in">SIGN IN</string>
+    <string name="register">REGISTER</string>
+    <string name="add_contact">ADD CONTACT</string>
+    <string name="create_group">CREATE GROUP</string>
+    <string name="sign_out">SIGN OUT</string>
+    <string name="settings">SETTINGS</string>
+    <string name="help">HELP</string>
+
+    <!-- toolbar items names -->
+    <string name="search">Search</string>
+    <string name="chat_txt">Chat texting</string>
+</resources>

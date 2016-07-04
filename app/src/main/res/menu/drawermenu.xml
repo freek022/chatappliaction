@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="@string/chats"
+        android:id="@+id/navItemChats"
+        android:icon="@drawable/ic_chat_white_48dp"
+
+        />
+
+    <item android:title="@string/sign_in"
+        android:id="@+id/navItemSignin"
+        android:icon="@drawable/ic_login_white_24dp"
+        />
+
+    <item android:title="@string/register"
+        android:id="@+id/navItemRegister"
+        android:icon="@drawable/ic_account_check_white_24dp"
+        />
+    <item android:title="@string/add_contact"
+        android:id="@+id/navItemAddContact"
+        android:icon="@drawable/ic_person_add_black_24dp"
+        />
+    <item android:title="@string/create_group"
+        android:id="@+id/navItemCreateGroup"
+        android:icon="@drawable/ic_group_add_black_24dp"
+        />
+
+    <item android:title="@string/sign_out"
+        android:id="@+id/navItemSignout"
+        android:icon="@drawable/ic_logout_white_24dp"
+        />
+
+     <group android:id="@+id/group_settings_id">
+        <item android:title="@string/settings"
+            android:icon="@drawable/ic_settings_black_24dp"
+            />
+        <item android:title="@string/help"
+            android:icon="@drawable/ic_help_black_24dp"
+            />
+    </group>
+
+</menu>
