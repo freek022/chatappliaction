@@ -2,6 +2,7 @@ package com.fg.chatapp;
 
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
@@ -20,10 +21,7 @@ public class MainActivity extends AppCompatActivity {
     NavigationView mNavigationView;
     FragmentManager mFragmentManager;
     FragmentTransaction mFragmentTransaction;
-
-
-    //////
-    private Toolbar toolbar; // declare the Toolbar object
+    private Toolbar mToolbar; // declare the Toolbar object
 
 
 
@@ -39,55 +37,65 @@ public class MainActivity extends AppCompatActivity {
         ImageView imageHeaderPhoto = (ImageView) headerLayout.findViewById(R.id.profileImage);
         imageHeaderPhoto.setPressed(true);
 
-
-        /////
-
-        // attach the layout to the toolbar
-       toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar); // set the toolbar as an ActionBar
-
-
-        /////
-
+        setUpToolbar();
 
         // inflate the very fragment, here we are inflating the TabFragment
         mFragmentManager = getSupportFragmentManager();
         mFragmentTransaction = mFragmentManager.beginTransaction();
         mFragmentTransaction.replace(R.id.containerView, new TabFragment()).commit();
 
-        // set click events on the Navigation View items
-        mNavigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener(){
-
-            @Override
-            public boolean onNavigationItemSelected(MenuItem menuItem) {
-                // mDrawerLayout.closeDrawers();
-                /////
-                int id = menuItem.getItemId();
-
-                if (id == R.id.navItemSignin) {
-                    // handle the sent action
-                    FragmentTransaction ft = mFragmentManager.beginTransaction();
-                    ft.replace(R.id.containerView, new SigninFragment()).commit();
-                }
-
-                if (id == R.id.navItemChats) {
-                    FragmentTransaction xft = mFragmentManager.beginTransaction();
-                    xft.replace(R.id.containerView, new TabFragment()).commit();
-                }
-
-                mDrawerLayout.closeDrawer(GravityCompat.START);
-                return true;
-            }
-        });
+        setUpDrawerItems(mNavigationView);
 
         // set the drawer toggle of the toolbar
         android.support.v7.widget.Toolbar toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.toolbar);
         ActionBarDrawerToggle mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, toolbar, R.string.app_name, R.string.app_name);
         mDrawerLayout.setDrawerListener(mDrawerToggle);
+        mDrawerToggle.setDrawerIndicatorEnabled(true);
         mDrawerToggle.syncState();
     }
 
+    // initialize the toolbar
+    private void setUpToolbar (){
+        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        if (mToolbar != null) {
+            setSupportActionBar(mToolbar);
+        }
+    }
 
+    // set up the drawer items
+    private void setUpDrawerItems(NavigationView mNavigationView) {
+        mNavigationView.setNavigationItemSelectedListener(
+                new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(MenuItem item) {
+                selectDrawerItem(item);
+                return true;
+            }
+        });
+    }
+
+    // selects an item from the navigation drawer
+    public void selectDrawerItem(MenuItem menuItem){
+        int id = menuItem.getItemId();
+        if (id == R.id.navItemSignin) {
+            menuItem.setTitle("Sign in");
+            // handle the sent action
+            FragmentTransaction ft = mFragmentManager.beginTransaction();
+            ft.replace(R.id.containerView, new SigninFragment()).commit();
+        }
+
+        if (id == R.id.navItemChats) {
+            FragmentTransaction xft = mFragmentManager.beginTransaction();
+            xft.replace(R.id.containerView, new TabFragment()).commit();
+        }
+
+        menuItem.setChecked(true);
+
+        setTitle(menuItem.getTitle());
+        mToolbar.setTitle(menuItem.getTitle());
+
+        mDrawerLayout.closeDrawer(GravityCompat.START);
+    }
 
     @Override
     public void onBackPressed() {

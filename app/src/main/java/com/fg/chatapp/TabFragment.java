@@ -67,6 +67,7 @@ public class TabFragment extends Fragment {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 tab.getIcon().setColorFilter(Color.parseColor("#f39c12"), PorterDuff.Mode.SRC_IN);
+
             }
 
             @Override
