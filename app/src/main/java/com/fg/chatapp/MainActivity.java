@@ -17,10 +17,10 @@ import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity {
 
-    DrawerLayout mDrawerLayout;
-    NavigationView mNavigationView;
-    FragmentManager mFragmentManager;
-    FragmentTransaction mFragmentTransaction;
+    private DrawerLayout mDrawerLayout;
+    private NavigationView mNavigationView;
+    private FragmentManager mFragmentManager;
+    private FragmentTransaction mFragmentTransaction;
     private Toolbar mToolbar; // declare the Toolbar object
 
 
@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
     public void selectDrawerItem(MenuItem menuItem){
         int id = menuItem.getItemId();
         if (id == R.id.navItemSignin) {
-            menuItem.setTitle("Sign in");
+            //menuItem.setTitle("Sign in");
             // handle the sent action
             FragmentTransaction ft = mFragmentManager.beginTransaction();
             ft.replace(R.id.containerView, new SigninFragment()).commit();
@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
         setTitle(menuItem.getTitle());
         mToolbar.setTitle(menuItem.getTitle());
 
-        mDrawerLayout.closeDrawer(GravityCompat.START);
+        mDrawerLayout.closeDrawers();
     }
 
     @Override

@@ -12,6 +12,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by fred on 6/28/2016.
  */
@@ -20,6 +23,8 @@ public class TabFragment extends Fragment {
     public static TabLayout tabLayout;
     public static ViewPager viewPager;
     public static int int_items = 2;
+
+    public TabFragment(){}
 
     // initialize the tab icons for the tabLayout
     private int[] tabIcons = {
@@ -30,24 +35,16 @@ public class TabFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         // inflate tab_layout and setup Views
         View view = inflater.inflate(R.layout.tab_layout, null);
-        tabLayout = (TabLayout) view.findViewById(R.id.tabs);
+
         viewPager = (ViewPager) view.findViewById(R.id.viewpager);
+        setUpViewPager(viewPager);
 
-        // set an adapter for the view pager
-        viewPager.setAdapter(new MyAdapter(getChildFragmentManager()));
-        // initiate the runnable
-        tabLayout.post(new Runnable() {
-            @Override
-            public void run() {
-                tabLayout.setupWithViewPager(viewPager);
-                ////
-                setUpIcons();
+        tabLayout = (TabLayout) view.findViewById(R.id.tabs);
+        tabLayout.setupWithViewPager(viewPager);
+        //setUpIcons();
 
-            }
-        });
         return view;
     }
-
 
     // method that set icons for the tabs
     public void setUpIcons() {
@@ -82,31 +79,50 @@ public class TabFragment extends Fragment {
         });
     }
 
+    private void setUpViewPager(ViewPager viewPager){
+        MyAdapter adapter = new MyAdapter(getChildFragmentManager());
+        adapter.addFrag(new ChatsFragment());
+        adapter.addFrag(new ContactsFragment());
+        viewPager.setAdapter(adapter);
+    }
 
-    private class MyAdapter extends FragmentPagerAdapter {
-        public MyAdapter(FragmentManager fm) {
-            super(fm);
-        }
-        // return fragment with respect to position
+    public class MyAdapter extends FragmentPagerAdapter {
+        private final List<Fragment> fragmentList = new ArrayList<>();
+
+        public MyAdapter(FragmentManager fm){super(fm);}
 
         @Override
         public Fragment getItem(int position) {
-            switch (position){
-                case 0 :
-                    return new ChatsFragment();
-                case 1 :
-                    return new ContactsFragment();
-
-            }
-            return  null;
+            return fragmentList.get(position);
         }
 
         @Override
         public int getCount() {
-            return  int_items;
+            return fragmentList.size();
         }
 
-        // this method returns the title of the tab according to the position
+        public void addFrag(Fragment fragment){
+            fragmentList.add(fragment);
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+
+
+
+            switch (position){
+                case 0 :
+                    return "CHATS";
+                case 1 :
+                    return "CONTACTS";
+            }
+
+
+
+            return null;
+        }
+
+        /**
         @Override
         public CharSequence getPageTitle(int position){
             /**
@@ -117,7 +133,9 @@ public class TabFragment extends Fragment {
                     return "Contacts";
             }
             */
-            return null;
-        }
+           // return null;
+        //}
+
+
     }
 }
