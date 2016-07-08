@@ -15,4 +15,7 @@
     <!-- toolbar items names -->
     <string name="search">Search</string>
     <string name="chat_txt">Chat texting</string>
+
+    <!-- add contact information -->
+    <string name="user_name">Enter your name</string>
 </resources>

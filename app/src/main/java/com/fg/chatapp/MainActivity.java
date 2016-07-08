@@ -83,6 +83,10 @@ public class MainActivity extends AppCompatActivity {
             FragmentTransaction ft = mFragmentManager.beginTransaction();
             ft.replace(R.id.containerView, new SigninFragment()).commit();
         }
+        if (id == R.id.navItemAddContact) {
+            FragmentTransaction addContactFt = mFragmentManager.beginTransaction();
+            addContactFt.replace(R.id.containerView, new AddContactFragment()).commit();
+        }
 
         if (id == R.id.navItemChats) {
             FragmentTransaction xft = mFragmentManager.beginTransaction();
