@@ -2,7 +2,6 @@ package com.fg.chatapp;
 
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
@@ -83,9 +82,17 @@ public class MainActivity extends AppCompatActivity {
             FragmentTransaction ft = mFragmentManager.beginTransaction();
             ft.replace(R.id.containerView, new SigninFragment()).commit();
         }
+        if (id == R.id.navItemRegister) {
+            FragmentTransaction itemRegisterFt = mFragmentManager.beginTransaction();
+            itemRegisterFt.replace(R.id.containerView, new RegisterFragment()).commit();
+        }
         if (id == R.id.navItemAddContact) {
             FragmentTransaction addContactFt = mFragmentManager.beginTransaction();
             addContactFt.replace(R.id.containerView, new AddContactFragment()).commit();
+        }
+        if (id == R.id.navItemCreateGroup){
+            FragmentTransaction createGroupFt = mFragmentManager.beginTransaction();
+            createGroupFt.replace(R.id.containerView, new CreateGroupFragment()).commit();
         }
 
         if (id == R.id.navItemChats) {

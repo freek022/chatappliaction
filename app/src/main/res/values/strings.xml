@@ -17,5 +17,13 @@
     <string name="chat_txt">Chat texting</string>
 
     <!-- add contact information -->
-    <string name="user_name">Enter your name</string>
+    <string name="user_name">Name</string>
+
+    <!-- group name information -->
+    <string name="group_name">Group name</string>
+
+    <!-- register information -->
+    <string name="username">User name</string>
+    <string name="password">Password</string>
+
 </resources>
