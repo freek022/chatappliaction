@@ -1,7 +1,9 @@
 package com.fg.chatapp;
 
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
@@ -21,8 +23,6 @@ public class MainActivity extends AppCompatActivity {
     private FragmentManager mFragmentManager;
     private FragmentTransaction mFragmentTransaction;
     private Toolbar mToolbar; // declare the Toolbar object
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
         mDrawerToggle.setDrawerIndicatorEnabled(true);
         mDrawerToggle.syncState();
     }
+
 
     // initialize the toolbar
     private void setUpToolbar (){
@@ -94,6 +95,10 @@ public class MainActivity extends AppCompatActivity {
             FragmentTransaction createGroupFt = mFragmentManager.beginTransaction();
             createGroupFt.replace(R.id.containerView, new CreateGroupFragment()).commit();
         }
+        if (id == R.id.navItemSignout){
+            FragmentTransaction signoutFt = mFragmentManager.beginTransaction();
+            signoutFt.replace(R.id.containerView, new SignoutFragment()).commit();
+        }
 
         if (id == R.id.navItemChats) {
             FragmentTransaction xft = mFragmentManager.beginTransaction();
@@ -107,6 +112,8 @@ public class MainActivity extends AppCompatActivity {
 
         mDrawerLayout.closeDrawers();
     }
+
+
 
     @Override
     public void onBackPressed() {

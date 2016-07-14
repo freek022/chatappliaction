@@ -18,11 +18,11 @@
         />
     <item android:title="@string/add_contact"
         android:id="@+id/navItemAddContact"
-        android:icon="@drawable/ic_person_add_black_24dp"
+        android:icon="@drawable/ic_person_add_white_24dp"
         />
     <item android:title="@string/create_group"
         android:id="@+id/navItemCreateGroup"
-        android:icon="@drawable/ic_group_add_black_24dp"
+        android:icon="@drawable/ic_group_add_white_24dp"
         />
 
     <item android:title="@string/sign_out"

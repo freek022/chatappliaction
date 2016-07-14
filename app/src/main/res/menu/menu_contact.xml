@@ -1,7 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.fg.chatapp.MainActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
@@ -15,11 +15,13 @@
         android:icon="@drawable/ic_search_white_24dp"
         app:showAsAction="ifRoom"
         />
+
     <item
-        android:id="@+id/txt_chat"
+        android:id="@+id/txt_add_contact"
         android:orderInCategory="300"
-        android:title="@string/chat_txt"
-        android:icon="@drawable/ic_message_draw_white_24dp"
+        android:title="@string/add_contact"
+        android:icon="@drawable/ic_person_add_white_24dp"
         app:showAsAction="ifRoom"
         />
+
 </menu>

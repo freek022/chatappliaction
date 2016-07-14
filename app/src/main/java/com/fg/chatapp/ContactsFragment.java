@@ -9,6 +9,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,6 +28,7 @@ public class ContactsFragment extends Fragment {
     @Nullable
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle SavedInstanceState) {
         View view = inflater.inflate(R.layout.contacts_layout, null);
+        setHasOptionsMenu(true);
         txt1 = (TextView) view.findViewById(R.id.textView1);
         txt1.setText("Welcome to contact fragment");
         txt2 = (TextView) view.findViewById(R.id.link);
@@ -35,4 +37,10 @@ public class ContactsFragment extends Fragment {
         return view;
     }
 
+    @Override
+    public void onPrepareOptionsMenu(Menu menu) {
+        super.onPrepareOptionsMenu(menu);
+        menu.clear();
+        getActivity().getMenuInflater().inflate(R.menu.menu_contact, menu);
+    }
 }
