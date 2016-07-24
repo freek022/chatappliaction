@@ -16,12 +16,15 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class MainActivity extends AppCompatActivity {
+    //rivate FirebaseAuth firebaseAuth;
 
     private DrawerLayout mDrawerLayout;
     private NavigationView mNavigationView;
-    private FragmentManager mFragmentManager;
-    private FragmentTransaction mFragmentTransaction;
+    public FragmentManager mFragmentManager;
+    public FragmentTransaction mFragmentTransaction;
     private Toolbar mToolbar; // declare the Toolbar object
 
     @Override
@@ -53,7 +56,6 @@ public class MainActivity extends AppCompatActivity {
         mDrawerToggle.syncState();
     }
 
-
     // initialize the toolbar
     private void setUpToolbar (){
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -78,11 +80,10 @@ public class MainActivity extends AppCompatActivity {
     public void selectDrawerItem(MenuItem menuItem){
         int id = menuItem.getItemId();
         if (id == R.id.navItemSignin) {
-            //menuItem.setTitle("Sign in");
-            // handle the sent action
             FragmentTransaction ft = mFragmentManager.beginTransaction();
             ft.replace(R.id.containerView, new SigninFragment()).commit();
         }
+
         if (id == R.id.navItemRegister) {
             FragmentTransaction itemRegisterFt = mFragmentManager.beginTransaction();
             itemRegisterFt.replace(R.id.containerView, new RegisterFragment()).commit();

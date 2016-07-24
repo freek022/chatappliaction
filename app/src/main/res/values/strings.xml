@@ -4,7 +4,7 @@
 
     <!-- navigation items names-->
     <string name="chats">Chats</string>
-    <string name="sign_in">Sign in</string>
+    <string name="sign_in">Log in</string>
     <string name="register">Register</string>
     <string name="add_contact">Add Contact</string>
     <string name="create_group">Create Group</string>
@@ -23,7 +23,24 @@
     <string name="group_name">Group name</string>
 
     <!-- register information -->
-    <string name="username">User name</string>
-    <string name="password">Password</string>
+    <string name="upassword_hintsername">User name</string>
+    <string name="password_hint">Password</string>
+    <string name="email_hint">Email</string>
+    <string name="sign_up_button">Signup</string>
+    <string name="verify_password">Re enter password</string>
+    <string name="no_text"></string>
+    <string name="login_button">Login</string>
+    <string name="profile">User Profile</string>
+    <string name="contacts">Contacts Layout</string>
+    <string name="name_hint">Name</string>
+    <string name="email_password_input">Required</string>
+    <string name="password_length">password length should be greater than 6</string>
+    <string name="button_login">Already registered? Login</string>
 
+
+    <string name="emailpassword_status_fmt">Email User: %s</string>
+    <string name="emailpassword_title_text">Email and Password</string>
+
+    <string name="firebase_status_fmt">Firebase User: %s</string>
+    <string name="firebase_user_management">Firebase User Management</string>
 </resources>

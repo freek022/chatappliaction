@@ -87,9 +87,9 @@ public class TabFragment extends Fragment {
 
             switch (position){
                 case 0 :
-                    return "CHATS";
+                    return "Chats";
                 case 1 :
-                    return "CONTACTS";
+                    return "Contacts";
             }
             return null;
         }

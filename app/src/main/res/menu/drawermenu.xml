@@ -4,7 +4,10 @@
     <item android:title="@string/chats"
         android:id="@+id/navItemChats"
         android:icon="@drawable/ic_chat_white_48dp"
-
+        />
+    <item android:title="@string/profile"
+        android:id="@+id/navItemProfile"
+        android:icon="@drawable/ic_contacts_white_48dp"
         />
 
     <item android:title="@string/sign_in"

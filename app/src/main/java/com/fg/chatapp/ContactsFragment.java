@@ -20,9 +20,6 @@ import android.widget.TextView;
  */
 public class ContactsFragment extends Fragment {
     TextView txt1, txt2;
-    private FloatingActionButton fab;
-
-
 
     @Override
     @Nullable
@@ -31,8 +28,7 @@ public class ContactsFragment extends Fragment {
         setHasOptionsMenu(true);
         txt1 = (TextView) view.findViewById(R.id.textView1);
         txt1.setText("Welcome to contact fragment");
-        txt2 = (TextView) view.findViewById(R.id.link);
-        txt2.getText();
+
 
         return view;
     }
@@ -42,5 +38,20 @@ public class ContactsFragment extends Fragment {
         super.onPrepareOptionsMenu(menu);
         menu.clear();
         getActivity().getMenuInflater().inflate(R.menu.menu_contact, menu);
+
+    }
+
+
+    /////// start from here
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        switch (id){
+            case R.menu.menu_contact:
+                startActivity(new Intent("AddContactFragment"));
+        }
+
+
+        return super.onOptionsItemSelected(item);
     }
 }
